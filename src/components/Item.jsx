@@ -1,4 +1,6 @@
-export default function Item({ item }) {
+import { useState } from 'react';
+
+export default function Item({ item, onDelete }) {
   return (
     <li>
       <span style={item.packed ? { textDecoration: 'line-through' } : {}}>
@@ -6,7 +8,7 @@ export default function Item({ item }) {
         &nbsp;&nbsp;
         {item.description}
       </span>
-      <button>❌</button>
+      <button onClick={() => onDelete(item.id)}>❌</button>
     </li>
   );
 }
